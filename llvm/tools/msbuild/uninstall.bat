@@ -66,6 +66,36 @@ IF EXIST %D%\LLVM-vs2014_xp del %D%\LLVM-vs2014_xp\toolset.props
 IF EXIST %D%\LLVM-vs2014_xp del %D%\LLVM-vs2014_xp\toolset.targets
 IF EXIST %D%\LLVM-vs2014_xp rmdir %D%\LLVM-vs2014_xp
 
+SET D="%ProgramFiles%\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Platforms\%PLATFORM%\PlatformToolsets"
+IF EXIST %D%\LLVM-vs2017 del %D%\LLVM-vs2017\toolset.props
+IF EXIST %D%\LLVM-vs2017 del %D%\LLVM-vs2017\toolset.targets
+IF EXIST %D%\LLVM-vs2017 rmdir %D%\LLVM-vs2017
+IF EXIST %D%\LLVM-vs2017_xp del %D%\LLVM-vs2017_xp\toolset.props
+IF EXIST %D%\LLVM-vs2017_xp del %D%\LLVM-vs2017_xp\toolset.targets
+IF EXIST %D%\LLVM-vs2017_xp rmdir %D%\LLVM-vs2017_xp
+SET D="%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Platforms\%PLATFORM%\PlatformToolsets"
+IF EXIST %D%\LLVM-vs2017 del %D%\LLVM-vs2017\toolset.props
+IF EXIST %D%\LLVM-vs2017 del %D%\LLVM-vs2017\toolset.targets
+IF EXIST %D%\LLVM-vs2017 rmdir %D%\LLVM-vs2017
+IF EXIST %D%\LLVM-vs2017_xp del %D%\LLVM-vs2017_xp\toolset.props
+IF EXIST %D%\LLVM-vs2017_xp del %D%\LLVM-vs2017_xp\toolset.targets
+IF EXIST %D%\LLVM-vs2017_xp rmdir %D%\LLVM-vs2017_xp
+
+SET D="%ProgramFiles%\Microsoft Visual Studio\Preview\Community\Common7\IDE\VC\VCTargets\Platforms\%PLATFORM%\PlatformToolsets"
+IF EXIST %D%\LLVM-vs2017 del %D%\LLVM-vs2017\toolset.props
+IF EXIST %D%\LLVM-vs2017 del %D%\LLVM-vs2017\toolset.targets
+IF EXIST %D%\LLVM-vs2017 rmdir %D%\LLVM-vs2017
+IF EXIST %D%\LLVM-vs2017_xp del %D%\LLVM-vs2017_xp\toolset.props
+IF EXIST %D%\LLVM-vs2017_xp del %D%\LLVM-vs2017_xp\toolset.targets
+IF EXIST %D%\LLVM-vs2017_xp rmdir %D%\LLVM-vs2017_xp
+SET D="%ProgramFiles(x86)%\Microsoft Visual Studio\Preview\Community\Common7\IDE\VC\VCTargets\Platforms\%PLATFORM%\PlatformToolsets"
+IF EXIST %D%\LLVM-vs2017 del %D%\LLVM-vs2017\toolset.props
+IF EXIST %D%\LLVM-vs2017 del %D%\LLVM-vs2017\toolset.targets
+IF EXIST %D%\LLVM-vs2017 rmdir %D%\LLVM-vs2017
+IF EXIST %D%\LLVM-vs2017_xp del %D%\LLVM-vs2017_xp\toolset.props
+IF EXIST %D%\LLVM-vs2017_xp del %D%\LLVM-vs2017_xp\toolset.targets
+IF EXIST %D%\LLVM-vs2017_xp rmdir %D%\LLVM-vs2017_xp
+
 
 GOTO LOOPHEAD
 

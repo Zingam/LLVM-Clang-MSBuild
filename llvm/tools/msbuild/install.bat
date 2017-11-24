@@ -38,6 +38,18 @@ IF EXIST %D% GOTO FOUND_V140
 SET D="%ProgramFiles(x86)%\MSBuild\Microsoft.Cpp\v4.0\V140\Platforms\%PLATFORM%\PlatformToolsets"
 IF EXIST %D% GOTO FOUND_V140
 
+:TRY_V141_Community
+SET D="%ProgramFiles%\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Platforms\%PLATFORM%\PlatformToolsets"
+IF EXIST %D% GOTO FOUND_V141_Community
+SET D="%ProgramFiles(x86)%Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Platforms\%PLATFORM%\PlatformToolsets"
+IF EXIST %D% GOTO FOUND_V141_Community
+
+:TRY_V141_Preview_Community
+SET D="%ProgramFiles%\Microsoft Visual Studio\Preview\Community\Common7\IDE\VC\VCTargets\Platforms\%PLATFORM%\PlatformToolsets"
+IF EXIST %D% GOTO FOUND_V141_Preview_Community
+SET D="%ProgramFiles(x86)%Microsoft Visual Studio\Preview\Community\Common7\IDE\VC\VCTargets\Platforms\%PLATFORM%\PlatformToolsets"
+IF EXIST %D% GOTO FOUND_V141_Preview_Community
+
 :TRY_V150
 
 GOTO PLATFORMLOOPHEAD
@@ -106,6 +118,40 @@ IF NOT %ERRORLEVEL% == 0 GOTO FAILED
 copy %PLATFORM%\toolset-vs2014_xp.props %D%\LLVM-vs2014_xp\toolset.props
 IF NOT %ERRORLEVEL% == 0 GOTO FAILED
 copy %PLATFORM%\toolset-vs2014_xp.targets %D%\LLVM-vs2014_xp\toolset.targets
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+set SUCCESS=1
+GOTO TRY_V141_Community
+
+:FOUND_V141_Community
+REM Routine for installing v141 toolchain.
+IF NOT EXIST %D%\LLVM-vs2017 mkdir %D%\LLVM-vs2017
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+copy %PLATFORM%\toolset-vs2017.props %D%\LLVM-vs2017\toolset.props
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+copy %PLATFORM%\toolset-vs2017.targets %D%\LLVM-vs2017\toolset.targets
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+IF NOT EXIST %D%\LLVM-vs2017_xp mkdir %D%\LLVM-vs2017_xp
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+copy %PLATFORM%\toolset-vs2017_xp.props %D%\LLVM-vs2017_xp\toolset.props
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+copy %PLATFORM%\toolset-vs2017_xp.targets %D%\LLVM-vs2017_xp\toolset.targets
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+set SUCCESS=1
+GOTO TRY_V141_Community_Preview
+
+:FOUND_V141_Community_Preview
+REM Routine for installing v141 preview toolchain.
+IF NOT EXIST %D%\LLVM-vs2017 mkdir %D%\LLVM-vs2017
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+copy %PLATFORM%\toolset-vs2017.props %D%\LLVM-vs2017\toolset.props
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+copy %PLATFORM%\toolset-vs2017.targets %D%\LLVM-vs2017\toolset.targets
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+IF NOT EXIST %D%\LLVM-vs2017_xp mkdir %D%\LLVM-vs2017_xp
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+copy %PLATFORM%\toolset-vs2017_xp.props %D%\LLVM-vs2017_xp\toolset.props
+IF NOT %ERRORLEVEL% == 0 GOTO FAILED
+copy %PLATFORM%\toolset-vs2017_xp.targets %D%\LLVM-vs2017_xp\toolset.targets
 IF NOT %ERRORLEVEL% == 0 GOTO FAILED
 set SUCCESS=1
 GOTO TRY_V150
